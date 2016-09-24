@@ -1,0 +1,2 @@
+class SupplierDeal < ApplicationRecord
+end
