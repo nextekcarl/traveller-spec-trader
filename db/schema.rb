@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160924211501) do
+ActiveRecord::Schema.define(version: 20160925234341) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "planets", force: :cascade do |t|
+    t.integer  "subsector_id"
+    t.string   "name",         null: false
+    t.text     "description"
+    t.text     "uwp",          null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["subsector_id"], name: "index_planets_on_subsector_id", using: :btree
+  end
+
+  create_table "subsectors", force: :cascade do |t|
+    t.string   "name",        null: false
+    t.text     "description"
+    t.text     "uwp",         null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "supplier_deals", force: :cascade do |t|
     t.text     "deals_table"
@@ -21,4 +39,5 @@ ActiveRecord::Schema.define(version: 20160924211501) do
     t.datetime "updated_at",  null: false
   end
 
+  add_foreign_key "planets", "subsectors"
 end
