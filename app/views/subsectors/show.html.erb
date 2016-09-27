@@ -1,0 +1,28 @@
+<table class="table table-bordered table-condensed table-striped table-hover">
+  <tr class="table-header">
+    <th>Planet Name</th>
+    <th>Hex</th>
+    <th>Stats</th>
+    <th>Base Code(s)</th>
+    <th>Trade Codes</th>
+  </tr>
+  <% @subsector.planets.each do |planet| %>
+    <tr>
+      <td>
+        <%= link_to planet.name, planet_path(planet) %>
+      </td>
+      <td>
+        <%= planet.hex %>
+      </td>
+      <td>
+        <%= planet.physical_stats %>
+      </td>
+      <td>
+        <%= planet.base_code %>
+      </td>
+      <td>
+        <%= planet.trade_codes %>
+      </td>
+    </tr>
+  <% end %>
+</table>

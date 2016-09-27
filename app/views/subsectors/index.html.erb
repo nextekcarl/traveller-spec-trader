@@ -1,0 +1,16 @@
+<table class="table table-bordered table-condensed table-striped table-hover">
+  <tr class="table-header">
+    <th>Subsector Name</th>
+    <th>Planets</th>
+  </tr>
+  <% @subsectors.each do |subsector| %>
+    <tr>
+      <td>
+        <%= link_to subsector.name, subsector_path(subsector) %>
+      </td>
+      <td>
+        <%= subsector.planets.count %>
+      </td>
+    </tr>
+  <% end %>
+</table>
