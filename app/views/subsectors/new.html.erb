@@ -1,0 +1,34 @@
+<p>
+  The format of the UWP is fairly specific. Due to the many variations that have existed
+  over the decades, I've had to settle for one and make it work as well as I could.
+  Any line that doesn't match a very specific regular expression is ignored, so if you
+  notice planets missing from the subsector, this is probably why.
+</p>
+<p>
+  This is an acceptable format, and works correctly:
+  <pre>
+    Zobabara   0101  C211000-0       P   Ba IC
+    Zitue      0201  B471699-7      ST   NI A
+    Nxen       0202  C757000-0      RT   Ba Ga
+    Viena      0208  C88898A-4           Ga Hi Lt A
+    Para       0301  E526000-0           Ba
+    Tatee      0302  D7A4000-0       S   Ba Fl A
+    Timaziezo  0304  B352136-7     NTC   Lo Po
+    Fatatozi   0305  C654415-7           Ga NI
+    Re         0306  C792527-8       T   NI
+    Rirarinae  0307  B610300-12  NSTCP   Ht Lo R
+    Batote     0308  C000447-10     SR   As NI Va
+                     ||||||| |
+    Ag Agricultural  ||||||| |           In Industrial
+    As Asteroid      ||||||| +- Tech     Lo Low Population
+    Ba Barren        ||||||+- Law        Lt Low Technology
+    De Desert        |||||+- Government  Na Non-Agricultural
+    Fl Fluid Oceans  ||||+- Population   NI Non-Industrial
+    Ga Garden        |||+- Hydro         Po Poor
+    HiHighPopulation ||+- Atmosphere     Ri Rich
+    HtHighTechnology |+- Size            Wa Water World
+    IC Ice-Capped    +- Starport         Va Vacuum
+  </pre>
+</p>
+
+<%= render partial: 'form' %>
