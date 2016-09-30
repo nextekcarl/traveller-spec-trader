@@ -20,7 +20,7 @@ class Planet < ApplicationRecord
     end
   end
 
-  def start_port
+  def star_port
     self.physical_stats[0] || ''
   end
 
