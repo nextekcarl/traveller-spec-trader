@@ -19,3 +19,4 @@
 # Ignore vendored gems
 vendor/ruby
 /.bundle
+.DS_Store
