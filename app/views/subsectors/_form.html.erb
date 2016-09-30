@@ -1,12 +1,22 @@
-<%= form_for @subsector, method: :post, class: "navbar-form navbar-left search-form" do |f| %>
-  <label>Name:</label>
-    <%= f.text_field :name, size: 40 -%>
-  <br />
-  <label>Description:</label>
-    <%= f.text_area :description, cols: 60, rows: 10 -%>
-  <br/>
-  <label>UWP:</label>
-    <%= f.text_area :uwp, cols: 60, rows: 20 -%>
+<%= form_for @subsector, method: :post do |f| %>
+  <div class="form-group row">
+    <label for="subsector_name" class="col-sm-1 col-form-label">Name:</label>
+    <div class="col-sm-11">
+      <%= f.text_field :name, size: 40, class: 'form-control' -%>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="subsector_description" class="col-sm-1 col-form-label">Description:</label>
+    <div class="col-sm-11">
+      <%= f.text_area :description, cols: 60, rows: 10, class: 'form-control' -%>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="subsector_uwp" class="col-sm-1 col-form-label">UWP:</label>
+    <div class="col-sm-11">
+      <%= f.text_area :uwp, cols: 60, rows: 20, class: 'form-control' -%>
+    </div>
+  </div>
 
-  <%= f.submit('Create Subsector') %>
+  <%= f.submit 'Create Subsector', class: 'btn btn-primary' %>
 <% end %>
