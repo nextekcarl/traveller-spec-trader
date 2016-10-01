@@ -2,10 +2,12 @@ class BasicTradeGood
   #Define the basic goods, link to table with defined goods on it.
   #Has a max tonnage, and then a table of DefinedTradeGoods that can make it up.
   #case statement to determine what DefinedTradeGoods to roll up???
+  include ActionView::Helpers::NumberHelper
   attr_accessor :basic_trade_good, :morally_ambiguous, :max_tonnage, :total_tonnage, :specifics
   def initialize(basic_trade_good, morally_ambiguous)
     @basic_trade_good = basic_trade_good
     @morally_ambiguous = morally_ambiguous
+    @detailed_goods = Hash.new(0) #Setting default value
     case
       when @basic_trade_good == "Basic Electronics"
         @max_tonnage = roll('1d6') * 10
@@ -87,13 +89,30 @@ class BasicTradeGood
     @remaining_tonnage = @max_tonnage
   end
 
-  def details
-    @specifics ||= "#{@basic_trade_good}: #{@max_tonnage} tons\n"
-    while @remaining_tonnage > 0
-      goods, tonnage = DefinedTradeGood.specific(@basic_trade_good, @remaining_tonnage)
-      @specifics += "\t#{goods}"
-      @remaining_tonnage -= tonnage
+  def to_s
+    if @specifics.blank?
+      @specifics = "#{@basic_trade_good}: #{@max_tonnage} tons\n"
+      set_detailed_goods.each do |goods, tonnage|
+        @specifics += "\t#{goods} |#{tonnage} tons| #{number_to_currency(
+                        DefinedTradeGood.base_price[goods.to_sym],
+                        unit: 'Cr', format: '%n%u', precision: 0)}\n"
+      end
     end
     return @specifics
+  end
+
+  #TODO: return hash of detailed trade goods, with key being name, and value being
+  #tonnage. Make the system add the tonnage together, with default being 0 tons.
+  #Then Add system to look up the base price per ton for every possible detailed
+  #set of goods. Then add a to_s method that does what details does now, and add
+  #another method to turn the values into a table row, perhaps through a presenter.
+
+  def set_detailed_goods
+    while @remaining_tonnage > 0
+      goods, tonnage = DefinedTradeGood.specific(@basic_trade_good, @remaining_tonnage)
+      @remaining_tonnage -= tonnage
+      @detailed_goods[goods] += tonnage
+    end
+    return @detailed_goods
   end
 end

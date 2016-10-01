@@ -16,7 +16,7 @@ class Supplier
     @available_goods = ''
     @trade_lots ||= TradeLot.new(@trade_codes, @morally_ambiguous)
     @trade_lots.basic_trade_goods.each do |basic_trade_good|
-      @available_goods += basic_trade_good.details
+      @available_goods += basic_trade_good.to_s
     end
     @available_goods
   end
