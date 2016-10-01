@@ -109,6 +109,12 @@ class TradeLot
     end
 
     @basic_goods = @basic_goods.flatten.sort{|a, b| a.basic_trade_good <=> b.basic_trade_good}
+    consolidated_goods = Hash.new(0)
+    @basic_goods.each do |btg|
+      consolidated_goods[btg.basic_trade_good] += btg.max_tonnage
+    end
+    @basic_goods = []
+    consolidated_goods.each {|btg, new_max_tonnage| @basic_goods << (BasicTradeGood.new(btg, @morally_ambiguous, new_max_tonnage))}
   end
 
   def basic_trade_goods
