@@ -84,7 +84,7 @@ class BasicTradeGood
         when @basic_trade_good == "Exotics"
           @max_tonnage = 1
         else
-          raise "Unknown Basic Trade Good" #Something clearly wehn wrong
+          raise "Unknown Basic Trade Good"
       end
     end
     @remaining_tonnage = @max_tonnage
@@ -102,12 +102,6 @@ class BasicTradeGood
     end
     return @specifics
   end
-
-  #TODO: return hash of detailed trade goods, with key being name, and value being
-  #tonnage. Make the system add the tonnage together, with default being 0 tons.
-  #Then Add system to look up the base price per ton for every possible detailed
-  #set of goods. Then add a to_s method that does what details does now, and add
-  #another method to turn the values into a table row, perhaps through a presenter.
 
   def set_detailed_goods
     while @remaining_tonnage > 0
