@@ -635,7 +635,33 @@ class DefinedTradeGood
             return "Disintegrators/Psi-Weaponry/Weapons of Mass Destruction", @tonnage
         end
       when basic_trade_good == "Exotics"
-        return "Exotics, check page 110Cr", 1
+        #TODO: Handle Exotics somehow
+        case d66
+        when 11..13
+          return "Alien Super-Science", 1
+        when 14.16
+          return "Alien Ancient Relic", 1
+        when 21..23
+          return "Prototype Armour", 1
+        when 24..26
+          return "Prototype Device", 1
+        when 31..33
+          return "Prototype Technology", 1
+        when 34..36
+          return "Prototype Vehicular Component", 1
+        when 41..43
+          return "Undiscovered Animal Species", 1
+        when 44..46
+          return "Undiscovered Plant Species", 1
+        when 51..53
+          return "Unique Chemical", 1
+        when 54..56
+          return "Unique Treasure", 1
+        when 61..63
+          return "Unique Weapon", 1
+        when 64..66
+          return "Progenitor Artefact", 1
+        end
       else
         raise "Invalid Basic Trade Good: #{basic_trade_good}"
     end
@@ -818,7 +844,18 @@ class DefinedTradeGood
       "Synthetic Poisons/Personal-scale Mass Trauma Explosives":150000,
       "Arclight Weaponry/Biological or Chemical Weaponry/Naval Starship Weaponry":300000,
       "Disintegrators/Psi-Weaponry/Weapons of Mass Destruction":450000,
-      "Exotics, check page 110Cr": 0,
+      "Alien Super-Science": 2000000,
+      "Alien Ancient Relic": 2500000,
+      "Prototype Armour": 1250000,
+      "Prototype Device": 500000,
+      "Prototype Technology": 750000,
+      "Prototype Vehicular Component": 1000000,
+      "Undiscovered Animal Species": 1500000,
+      "Undiscovered Plant Species": 1500000,
+      "Unique Chemical": 5000000,
+      "Unique Treasure": 10000000,
+      "Unique Weapon": 15000000,
+      "Progenitor Artefact": 25000000,
     }
   end
 end

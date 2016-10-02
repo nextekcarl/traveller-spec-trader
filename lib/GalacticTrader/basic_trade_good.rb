@@ -82,11 +82,9 @@ class BasicTradeGood
         when @basic_trade_good == "Weapons, Illegal" && @morally_ambiguous
           @max_tonnage = roll('1d6') * 5
         when @basic_trade_good == "Exotics"
-          #Hmm, max works differently for these...
-          #Can't really handle these, so just set max to 0, have to use book
-          @max_tonnage = 0
+          @max_tonnage = 1
         else
-          @max_tonnage = 0
+          raise "Unknown Basic Trade Good" #Something clearly wehn wrong
       end
     end
     @remaining_tonnage = @max_tonnage
@@ -95,8 +93,9 @@ class BasicTradeGood
   def to_s
     if @specifics.blank?
       @specifics = "#{@basic_trade_good}: #{@max_tonnage} tons\n"
-      set_detailed_goods.each do |goods, tonnage|
-        @specifics += "\t#{goods} |#{tonnage} tons| #{number_to_currency(
+      detail_goods = set_detailed_goods.keys.sort
+      detail_goods.each do |goods|
+        @specifics += "\t#{goods} |#{@detailed_goods[goods]} tons| #{number_to_currency(
                         DefinedTradeGood.base_price[goods.to_sym],
                         unit: 'Cr', format: '%n%u', precision: 0)}\n"
       end
