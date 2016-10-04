@@ -66,7 +66,7 @@ class TradeCode
         BasicTradeGood.new("Drugs, Illegal", @morally_ambiguous),
         BasicTradeGood.new("Luxuries, Illegal", @morally_ambiguous),
       ]
-    when @code == 'A' || @code == 'Asteroid' || @code == 'As'
+    when @code == 'Asteroid' || @code == 'As'
       goods << [
         BasicTradeGood.new("Crystals & Gems", @morally_ambiguous),
         BasicTradeGood.new("Pharmaceuticals", @morally_ambiguous),
