@@ -155,6 +155,7 @@ Jump–6 travel."
   end
 
   def hydro_description(hydro)
+    hydro = 10 if hydro == 'A'
     return "#{hydro.to_i * 10}% surface liquid."
   end
 end
