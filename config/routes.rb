@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :subsectors, only: [:index, :show, :new, :create]
   resources :planets, only: [:index, :show]
 
+  get '/about', to: 'about#show'
   root 'trades#new'
 end

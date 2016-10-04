@@ -9,6 +9,22 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-dark bg-inverse">
+      <ul class="nav navbar-nav">
+        <li class="nav-item<%=" active" if request.path == '/'%>">
+          <a class="nav-link" href="/">Traveller Spec Trader</a>
+        </li>
+        <li class="nav-item<%=" active" if request.path == '/subsectors'%>">
+          <a class="nav-link" href="/subsectors">Subsectors</a>
+        </li>
+        <li class="nav-item<%=" active" if request.path == '/subsector/new'%>">
+          <a class="nav-link" href="/subsectors/new">New Subector</a>
+        </li>
+        <li class="nav-item<%=" active" if request.path == '/about'%>">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+      </ul>
+    </nav>
     <div class="container">
       <%= yield %>
     </div>
