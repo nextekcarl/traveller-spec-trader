@@ -1,69 +1,92 @@
 <h1><%= @planet.name -%></h1>
-<p>
-  Here you can generate the Trade Goods available today at a given supplier.
-  Select their morality and click generate.
-  <%= form_tag trades_path, method: :post, class: "navbar-form navbar-left search-form" do %>
-    <%= check_box_tag "morally_ambiguous", true, false, :name => "morally_ambiguous" -%>
-    Morally Ambiguous
-    <%= hidden_field_tag "trade_codes[]", @planet.trade_codes  %>
-    </ul>
-    <%= submit_tag('Generate') %>
-  <% end %>
-</p>
-<p>
-  <%= @planet.description %>
-</p>
-<table class="table table-bordered table-condensed table-striped table-hover">
-  <tr class="table-header">
-    <th>Hex</th>
-    <th>Starport</th>
-    <th>Size</th>
-    <th>Atmosphere</th>
-    <th>Hydro</th>
-    <th>Population</th>
-    <th>Government</th>
-    <th>Law</th>
-    <th>Tech</th>
-    <th>Base Code(s)</th>
-    <th>Trade Codes</th>
-  </tr>
-  <tr>
-    <td>
-      <%= @planet.hex %>
-    </td>
-    <td>
-      <%= @planet.star_port %>
-    </td>
-    <td>
-      <%= @planet.size %>
-    </td>
-    <td>
-      <%= @planet.atmosphere %>
-    </td>
-    <td>
-      <%= @planet.hydro %>
-    </td>
-    <td>
-      <%= @planet.population %>
-    </td>
-    <td>
-      <%= @planet.government %>
-    </td>
-    <td>
-      <%= @planet.law %>
-    </td>
-    <td>
-      <%= @planet.tech %>
-    </td>
-    <td>
-      <%= @planet.base_code %>
-    </td>
-    <td>
-      <%= @planet.trade_codes %>
-    </td>
-  </tr>
-</table>
-
-<p>
-  Coming soon(ish): Detailed breakdowns of the meaning of each physical stat above!
-</p>
+<div class="row">
+  <div class="col-sm-12">
+    <p>
+      Here you can generate the Trade Goods available today at a given supplier.
+      Select their morality and click generate.
+      <%= form_tag trades_path, method: :post, class: "navbar-form navbar-left search-form" do %>
+        <%= check_box_tag "morally_ambiguous", true, false, :name => "morally_ambiguous" -%>
+        Morally Ambiguous
+        <%= hidden_field_tag "trade_codes[]", @planet.trade_codes  %>
+        </ul>
+        <%= submit_tag('Generate') %>
+      <% end %>
+    </p>
+    <p>
+      <%= @planet.description %>
+    </p>
+    <table class="table table-bordered table-condensed table-striped table-hover">
+      <tr class="table-header">
+        <th>Hex</th>
+        <th>Starport</th>
+        <th>Size</th>
+        <th>Atmosphere</th>
+        <th>Hydro</th>
+        <th>Population</th>
+        <th>Government</th>
+        <th>Law</th>
+        <th>Tech</th>
+        <th>Base Code(s)</th>
+        <th>Trade Codes</th>
+      </tr>
+      <tr>
+        <td>
+          <%= @planet.hex %>
+        </td>
+        <td>
+          <%= @planet.star_port %>
+        </td>
+        <td>
+          <%= @planet.size %>
+        </td>
+        <td>
+          <%= @planet.atmosphere %>
+        </td>
+        <td>
+          <%= @planet.hydro %>
+        </td>
+        <td>
+          <%= @planet.population %>
+        </td>
+        <td>
+          <%= @planet.government %>
+        </td>
+        <td>
+          <%= @planet.law %>
+        </td>
+        <td>
+          <%= @planet.tech %>
+        </td>
+        <td>
+          <%= @planet.base_code %>
+        </td>
+        <td>
+          <%= @planet.trade_codes %>
+        </td>
+      </tr>
+    </table>
+    <p>
+      Coming soon(ish): Detailed breakdowns of the meaning of each physical stat above!
+    </p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-4">
+    <p class="text-justify">
+      <strong>Technology:</strong>
+      <%= technology_description(@planet.tech) -%>
+    </p>
+  </div>
+  <div class="col-sm-4">
+    <p class="text-justify">
+      <strong>Population:</strong>
+      <%= population_description(@planet.population) -%>
+    </p>
+  </div>
+  <div class="col-sm-4">
+    <p class="text-justify">
+      <strong>Government:</strong>
+      <%= government_description(@planet.government) -%>
+    </p>
+  </div>
+</div>

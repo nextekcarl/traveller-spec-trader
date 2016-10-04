@@ -1,2 +1,118 @@
 module PlanetsHelper
+  def technology_description(tech_code)
+    case tech_code.to_s
+    when "0"
+      return "(Primitive) No technology. TL 0 species have only discovered
+the simplest tools and principles, and are on a par with Earth’s
+Stone Age."
+    when "1"
+      return "(Primitive) Roughly on a par with Bronze or Iron age technology.
+TL 1 science is mostly superstition, but they can manufacture
+weapons and work metals."
+    when "2"
+      return "(Primitive) Renaissance technology. TL 2 brings with it a
+greater understanding of chemistry, physics, biology and astronomy
+as well as the scientifi c method."
+    when "3"
+      return ""
+    when "4"
+      return ""
+    when "5"
+      return ""
+    when "6"
+      return ""
+    when "7"
+      return ""
+    when "8"
+      return ""
+    when "9"
+      return ""
+    when "10"
+      return ""
+    when "11"
+      return ""
+    when "12"
+      return ""
+    when "13"
+      return ""
+    when "14"
+      return ""
+    when "15"
+      return ""
+    end
+  end
+
+  def government_description(government)
+    case government.to_s
+    when "0"
+      return ""
+    when "1"
+      return ""
+    when "2"
+      return ""
+    when "3"
+      return ""
+    when "4"
+      return ""
+    when "5"
+      return ""
+    when "6"
+      return ""
+    when "7"
+      return ""
+    when "8"
+      return ""
+    when "9"
+      return ""
+    when "A"
+      return ""
+    when "B"
+      return ""
+    when "C"
+      return ""
+    when "D"
+      return ""
+    when "E"
+      return ""
+    when "F"
+      return ""
+    end
+  end
+
+  def population_description(population)
+    case population.to_s
+    when "0"
+      return ""
+    when "1"
+      return ""
+    when "2"
+      return ""
+    when "3"
+      return ""
+    when "4"
+      return ""
+    when "5"
+      return ""
+    when "6"
+      return ""
+    when "7"
+      return ""
+    when "8"
+      return ""
+    when "9"
+      return ""
+    when "A"
+      return ""
+    when "B"
+      return ""
+    when "C"
+      return ""
+    when "D"
+      return ""
+    when "E"
+      return ""
+    when "F"
+      return ""
+    end
+  end
 end
