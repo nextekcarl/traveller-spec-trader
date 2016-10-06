@@ -268,6 +268,28 @@ Jump–6 travel."
     end
   end
 
+  def bases_description(bases)
+    return 'No bases' if bases.blank?
+    bases_text = []
+    bases.split('').each do |base|
+      case base
+      when 'N'
+        bases_text << 'Naval'
+      when 'S'
+        bases_text << 'Scout'
+      when 'T'
+        bases_text << 'TAS'
+      when 'C'
+        bases_text << 'Consulate'
+      when 'P'
+        bases_text << 'Pirate'
+      when 'R'
+        bases_text << 'Research'
+      end
+    end
+    return 'Base(s): ' + bases_text.join(', ')
+  end
+
   def law_description(law)
     case law.to_s
     when "0"
