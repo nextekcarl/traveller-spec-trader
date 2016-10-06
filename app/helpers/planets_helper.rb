@@ -83,79 +83,312 @@ Jump–6 travel."
   def government_description(government)
     case government.to_s
     when "0"
-      return ""
+      return "None No government structure. In many cases,
+      family bonds predominate.
+      Family, Clan,
+      Anarchy.
+      Common
+      Contraband: None"
     when "1"
-      return ""
+      return "Company/corporation Ruling functions are assumed by a company
+      managerial elite, and most citizenry are
+      company employees or dependants.
+      Corporate outpost,
+      asteroid mine,
+      feudal domain.
+      Common
+      Contraband: Weapons, Drugs,
+      Travellers"
     when "2"
-      return ""
+      return "Participating democracy Ruling functions are reached by the advice and
+      consent of the citizenry directly.
+      Collective, tribal
+      council, commlinked
+      consensus
+      Common
+      Contraband: Drugs"
     when "3"
-      return ""
+      return "Self-perpetuating oligarchy Ruling functions are performed by a restricted
+      minority, with little or no input from the mass
+      of citizenry.
+      Plutocracy,
+      hereditary ruling
+      caste.
+      Common
+      Contraband: Technology,
+      Weapons,
+      Travellers"
     when "4"
-      return ""
+      return "Representative democracy Ruling functions are performed by elected
+      representatives.
+      Republic,
+      democracy.
+      Common
+      Contraband: Drugs, Weapons,
+      Psionics."
     when "5"
-      return ""
+      return "Feudal technocracy Ruling functions are performed by specifi c
+      individuals for persons who agree to be ruled
+      by them. Relationships are based on the
+      performance of technical activities which are
+      mutually beneficial.
+      Common
+      Contraband: Technology,
+      Weapons,
+      Computers"
     when "6"
-      return ""
+      return "Captive government Ruling functions are performed by an imposed
+      leadership answerable to an outside group.
+      A colony or
+      conquered area.
+      Common
+      Contraband: Weapons,
+      Technology,
+      Travellers"
     when "7"
-      return ""
+      return "Balkanisation No central authority exists; rival governments
+      complete for control. Law level refers to the
+      government nearest the starport.
+      Multiple
+      governments,
+      civil war.
+      Common
+      Contraband: Varies"
     when "8"
-      return ""
+      return "Civil service bureaucracy Ruling functions are performed by government
+      agencies employing individuals selected for
+      their expertise.
+      Technocracy,
+      Communism.
+      Common
+      Contraband: Drugs, Weapons"
     when "9"
-      return ""
+      return "Impersonal Bureaucracy Ruling functions are performed by agencies
+      which have become insulated from the
+      governed citizens.
+      Entrenched castes
+      of bureaucrats,
+      decaying empire.
+      Common
+      Contraband: Technology,
+      Weapons, Drugs,
+      Travellers, Psionics"
     when "A"
-      return ""
+      return "Charismatic dictator Ruling functions are performed by agencies
+      directed by a single leader who enjoys the
+      overwhelming confi dence of the citizens.
+      Revolutionary
+      leader, messiah,
+      emperor.
+      Common
+      Contraband: None"
     when "B"
-      return ""
+      return "Non-charismatic leader A previous charismatic dictator has been
+      replaced by a leader through normal channels.
+      Military
+      dictatorship,
+      hereditary
+      kingship.
+      Common
+      Contraband: Weapons,
+      Technology,
+      Computers"
     when "C"
-      return ""
+      return "Charismatic oligarchy Ruling functions are performed by a select
+      group of members of an organisation or class
+      which enjoys the overwhelming confi dence of
+      the citizenry.
+      Junta,
+      revolutionary
+      council.
+      Common
+      Contraband: Weapons"
     when "D"
-      return ""
-    when "E"
-      return ""
-    when "F"
-      return ""
+      return "Religious dictatorship Ruling functions are performed by a religious
+      organisation without regard to the specifi c
+      individual needs of the citizenry.
+      Cult, transcendent
+      philosophy, psionic
+      group mind.
+      Common
+      Contraband: Varies"
     end
   end
 
   def population_description(population)
     case population.to_s
     when "0"
-      return ""
+      return "0"
     when "1"
-      return ""
+      return "Few 1+ A tiny farmstead or a single family"
     when "2"
-      return ""
+      return "Hundreds 100+ A village"
     when "3"
-      return ""
+      return "Thousands 1,000+"
     when "4"
-      return ""
+      return "Tens of thousands 10,000+ Small town"
     when "5"
-      return ""
+      return "Hundreds of thousands 100,000+ Average city"
     when "6"
-      return ""
+      return "Millions 1,000,000+"
     when "7"
-      return ""
+      return "Tens of millions 10,000,000+ Large city"
     when "8"
-      return ""
+      return "Hundreds of millions 100,000,000+"
     when "9"
-      return ""
+      return "Billions 1,000,000,000+ Present day Earth"
     when "A"
-      return ""
+      return "Tens of billions 10,000,000,000+"
     when "B"
-      return ""
+      return "Hundreds of billions 100,000,000,000+ Incredibly crowded world"
     when "C"
-      return ""
-    when "D"
-      return ""
-    when "E"
-      return ""
-    when "F"
-      return ""
+      return "Trillions 1,000,000,000,000+ World-city"
     end
   end
 
   def hydro_description(hydro)
     hydro = 10 if hydro == 'A'
     return "#{hydro.to_i * 10}% surface liquid."
+  end
+
+  def starport_description(star_port)
+    case star_port.to_s
+    when "A"
+      return "Excellent, berthing: 1d6x1000Cr, Refined fuel, Shipyard (all) Repairs"
+    when "B"
+      return "Good, berthing: 1d6x500Cr, Refined fuel, Shipyard (Spacecraft) Repairs"
+    when "C"
+      return "Routine, berthing: 1d6x100Cr, Refined fuel, Shipyard (small craft) Repairs"
+    when "D"
+      return "Poor, berthing: 1d6x10Cr, Unrefined fuel, Limited Repairs"
+    when "E"
+      return "Frontier, berthing: 0, Unrefined fuel, No Repairs"
+    when "X"
+      return "None, berthing: 0Cr, no fuel, No Repairs"
+    end
+  end
+
+  def law_description(law)
+    case law.to_s
+    when "0"
+      return "No restrictions."
+    when "1"
+      return "Poison gas,
+      explosives,
+      undetectable
+      weapons, WMD
+      Highly addictive and
+      dangerous narcotics
+      Intellect programs Dangerous
+      technologies such
+      as nanotechnology
+      Visitors must
+      contact planetary
+      authorities by
+      radio, landing
+      is permitted
+      anywhere
+      Dangerous
+      talents must be
+      registered."
+    when "2"
+      return "Portable energy
+      weapons (except
+      ship-mounted
+      weapons)
+      Highly addictive
+      narcotics
+      Agent programs Alien technology Visitors must
+      report passenger
+      manifest, landing
+      is permitted
+      anywhere
+      All psionic
+      powers must be
+      registered; use of
+      dangerous powers
+      forbidden."
+    when "3"
+      return "Heavy weapons Combat drugs Intrusion
+      programs
+      TL 15 items Landing only at
+      starport or other
+      authorised sites
+      Use of telepathy
+      restricted to
+      governmentapproved
+      telepaths"
+    when "4"
+      return "Light assault
+      weapons and
+      submachine guns
+      Addictive narcotics Security programs TL 13 items Landing only at
+      starport
+      Use of
+      teleportation
+      and clairvoyance
+      restricted"
+    when "5"
+      return "Personal
+      concealable
+      weapons
+      Anagathics Expert programs TL 11 items Citizens must
+      register offworld
+      travel, visitors
+      must register all
+      business
+      Use of all psionic
+      powers restricted
+      to government
+      psionicists"
+    when "6"
+      return "All firearms
+      except shotguns
+      and stunners;
+      carrying weapons
+      discouraged
+      Fast and Slow drugs Recent news from
+      offworld.
+      TL 9 items Visits
+      discouraged;
+      excessive contact
+      with citizens
+      forbidden
+      Possession of
+      psionic drugs
+      banned"
+    when "7"
+      return "Shotguns All narcotics Library programs,
+      unfi ltered data
+      about other
+      worlds. Free
+      speech curtailed.
+      TL 7 items Citizens may
+      not leave planet;
+      visitors may not
+      leave starport
+      Use of psionics
+      forbidden"
+    when "8"
+      return "All bladed weapons,
+      stunners
+      Medicinal drugs Information
+      technology, any
+      non-critical data
+      from offworld,
+      personal media.
+      TL 5 items Landing
+      permitted only to
+      imperial agents
+      Psionic-related
+      technology banned"
+    else
+      return "Any weapons All drugs Any data from
+      offworld. No free
+      press.
+      TL 3 items No offworlders
+      permitted
+      All psionics"
+    end
   end
 end

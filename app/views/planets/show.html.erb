@@ -69,9 +69,6 @@
         </td>
       </tr>
     </table>
-    <p>
-      Coming soon(ish): Detailed breakdowns of the meaning of each physical stat above!
-    </p>
   </div>
 </div>
 <div class="row">
@@ -83,14 +80,35 @@
   </div>
   <div class="col-sm-4">
     <p class="text-justify">
-      <strong>Population:</strong>
-      <%= population_description(@planet.population) -%>
+      <strong>Star Port:</strong>
+      <%= starport_description(@planet.star_port) -%>
     </p>
   </div>
   <div class="col-sm-4">
     <p class="text-justify">
       <strong>Government:</strong>
       <%= government_description(@planet.government) -%>
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-4">
+    <p class="text-justify">
+      <strong>Hydro:</strong>
+      <%= hydro_description(@planet.hydro) -%>
+    </p>
+  </div>
+  <div class="col-sm-4">
+    <p class="text-justify">
+      <strong>Population:</strong>
+      <%= population_description(@planet.population) -%>
+    </p>
+  </div>
+  <div class="col-sm-4">
+    <p class="text-justify">
+      <strong>Law:</strong>
+      <%= law_description(@planet.law) -%>
     </p>
   </div>
 </div>
