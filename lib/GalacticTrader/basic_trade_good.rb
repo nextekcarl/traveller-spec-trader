@@ -71,20 +71,18 @@ class BasicTradeGood
           @max_tonnage = roll('1d6') * 10
         when @basic_trade_good == "Vehicles"
           @max_tonnage = roll('1d6') * 10
-        when @basic_trade_good == "Biochemicals, Illegal" && @morally_ambiguous
-          @max_tonnage = roll('1d6') * 5
-        when @basic_trade_good == "Cybernetics, Illegal" && @morally_ambiguous
-          @max_tonnage = roll('1d6')
-        when @basic_trade_good == "Drugs, Illegal" && @morally_ambiguous
-          @max_tonnage = roll('1d6')
-        when @basic_trade_good == "Luxuries, Illegal" && @morally_ambiguous
-          @max_tonnage = roll('1d6')
-        when @basic_trade_good == "Weapons, Illegal" && @morally_ambiguous
-          @max_tonnage = roll('1d6') * 5
+        when @basic_trade_good == "Biochemicals, Illegal"
+          @morally_ambiguous == true ? @max_tonnage = roll('1d6') * 5 : @max_tonnage = 0
+        when @basic_trade_good == "Cybernetics, Illegal"
+          @morally_ambiguous == true ? @max_tonnage = roll('1d6') : @max_tonnage = 0
+        when @basic_trade_good == "Drugs, Illegal"
+          @morally_ambiguous == true ? @max_tonnage = roll('1d6') : @max_tonnage = 0
+        when @basic_trade_good == "Luxuries, Illegal"
+          @morally_ambiguous == true ? @max_tonnage = roll('1d6') : @max_tonnage = 0
+        when @basic_trade_good == "Weapons, Illegal"
+          @morally_ambiguous == true ? @max_tonnage = roll('1d6') * 5 : @max_tonnage = 0
         when @basic_trade_good == "Exotics"
           @max_tonnage = 1
-        else
-          raise "Unknown Basic Trade Good"
       end
     end
     @remaining_tonnage = @max_tonnage
