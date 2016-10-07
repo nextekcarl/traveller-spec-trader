@@ -4,6 +4,8 @@ class Planet < ApplicationRecord
 
   validates_format_of :uwp, with: REGEX
 
+  before_save :set_hex
+
   def trade_codes
     begin
       return self.uwp.match(REGEX)[5].strip.titleize
@@ -32,7 +34,7 @@ class Planet < ApplicationRecord
     self.physical_stats[0] || ''
   end
 
-  def hex
+  def refigure_hex
     begin
       return self.uwp.match(REGEX)[2].strip
     rescue
@@ -102,5 +104,11 @@ class Planet < ApplicationRecord
     rescue
       return ''
     end
+  end
+
+  private
+
+  def set_hex
+    self.hex = self.refigure_hex if self.hex.blank?
   end
 end

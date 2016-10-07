@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160925234341) do
+ActiveRecord::Schema.define(version: 20161007034349) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20160925234341) do
     t.text     "uwp",          null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "hex"
+    t.index ["hex"], name: "index_planets_on_hex", using: :btree
     t.index ["subsector_id"], name: "index_planets_on_subsector_id", using: :btree
   end
 

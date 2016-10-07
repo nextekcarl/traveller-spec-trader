@@ -38,14 +38,14 @@
 </div>
 <table class="table table-bordered table-condensed table-striped table-hover">
   <tr class="table-header">
-    <th>Planet Name</th>
-    <th>Hex</th>
+    <th><%= sortable "name" %></th>
+    <th><%= sortable "hex" %></th>
     <th>Stats</th>
     <th>Base Code(s)</th>
     <th>Trade Codes</th>
     <th>Travel</th>
   </tr>
-  <% @subsector.planets.each do |planet| %>
+  <% @planets.each do |planet| %>
     <tr>
       <td>
         <%= link_to planet.name, planet_path(planet) %>
