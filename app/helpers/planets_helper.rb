@@ -61,7 +61,7 @@ possible, allowing easier travel beyond the one-Jump stellar mains."
     when "12"
       return "(Average Stellar) Weather control revolutionises terraforming
 and agriculture. Man-portable plasma weapons and carrier-mounted
-fusion guns make the battlefi eld untenable for unarmoured
+fusion guns make the battlefield untenable for unarmoured
 combatants. Jump–3 travel is developed."
     when "13"
       return "(Average Stellar) The battle dress appears on the battlefi eld
@@ -268,6 +268,23 @@ Jump–6 travel."
     end
   end
 
+  def travel_code_description(travel_code)
+    case travel_code.to_s
+    when "A"
+      return "Amber. An Amber world has
+been deemed dangerous by the Imperium, and travellers are warned
+to be on their guard. Amber worlds are often undergoing upheaval
+or revolution, or else are naturally hazardous environments."
+    when "G"
+      return "Green, no restrictions"
+    when "R"
+      return "Red, worlds like this are interdicted and travel to them is forbidden. A world
+might be Red because the Imperium wishes to preserve it, or
+because the world is too dangerous to allow visitors. Interdictions
+are enforced by the Imperial Navy."
+    end
+  end
+
   def bases_description(bases)
     return 'No bases' if bases.blank?
     bases_text = []
@@ -411,6 +428,70 @@ Jump–6 travel."
       TL 3 items No offworlders
       permitted
       All psionics"
+    end
+  end
+
+  def size_description(size)
+    case size.to_s
+    when "0"
+      return "800 km Asteroid, orbital complex Negligible gravity"
+    when "1"
+      return "1,600 km 0.05g"
+    when "2"
+      return "3,200 km Triton, Luna, Europa 0.15g"
+    when "3"
+      return "4,800 km Mercury, Ganymede 0.25g"
+    when "4"
+      return "6,400 km Mars 0.35g"
+    when "5"
+      return "8,000 km 0.45g"
+    when "6"
+      return "9,600 km 0.7g"
+    when "7"
+      return "11,200 km 0.9g"
+    when "8"
+      return "12,800 km Earth 1.0g"
+    when "9"
+      return "14,400 km 1.25g"
+    when "A"
+      return "16,000 km 1.4g"
+    end
+  end
+
+  def atmosphere_description(atmos)
+    case atmos.to_s
+    when "0"
+      return "None, ex: Moon, 0.00, Vacc Suit"
+    when "1"
+      return "Trace, ex: Mars, 0.001 to 0.09, Vacc Suit"
+    when "2"
+      return "Very Thin, Tainted 0.1 to 0.42, Respirator, Filter"
+    when "3"
+      return "Very Thin 0.1 to 0.42, Respirator"
+    when "4"
+      return "Thin, Tainted, 0.43 to 0.7, Filter"
+    when "5"
+      return "Thin, 0.43 to 0.7"
+    when "6"
+      return "Ex: Standard Earth, 0.71–1.49"
+    when "7"
+      return "Standard, Tainted 0.71–1.49, Filter"
+    when "8"
+      return "Dense, 1.5 to 2.49"
+    when "9"
+      return "Dense, Tainted 1.5 to 2.49, Filter"
+    when "A"
+      return "Exotic, Varies, Air Supply"
+    when "B"
+      return "Corrosive, ex: Venus, Varies, Vacc Suit"
+    when "C"
+      return "Insidious, Varies, Vacc Suit"
+    when "D"
+      return "Dense, High, 2.5+"
+    when "E"
+      return "Thin, Low 0.5 or less"
+    when "F"
+      return "Unusual, Varies, Varies"
     end
   end
 end
