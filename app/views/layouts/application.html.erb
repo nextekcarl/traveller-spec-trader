@@ -10,19 +10,20 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-dark bg-inverse">
+    <nav class="navbar navbar-dark bg-inverse nav-pills">
       <ul class="nav navbar-nav">
-        <li class="nav-item<%=" active" if request.path == '/'%>">
-          <a class="nav-link" href="/">Traveller Spec Trader</a>
+        <li class="nav-item">
+          <a class="nav-link<%=" active" if request.path == '/'%>" href="/">Traveller Spec Trader</a>
         </li>
-        <li class="nav-item<%=" active" if request.path == '/subsectors'%>">
-          <a class="nav-link" href="/subsectors">Subsectors</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle<%=" active" if request.path.match(/subsector/)%>" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Subsectors</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item<%=" active" if request.path.match(/subsectors$/)%>" href="/subsectors">List All</a>
+            <a class="dropdown-item<%=" active" if request.path.match(/subsector\/new$/)%>" href="/subsectors/new">Create a new one</a>
+          </div>
         </li>
-        <li class="nav-item<%=" active" if request.path == '/subsector/new'%>">
-          <a class="nav-link" href="/subsectors/new">New Subsector</a>
-        </li>
-        <li class="nav-item<%=" active" if request.path == '/about'%>">
-          <a class="nav-link" href="/about">About</a>
+        <li class="nav-item">
+          <a class="nav-link<%=" active" if request.path == '/about'%>" href="/about">About</a>
         </li>
       </ul>
     </nav>
