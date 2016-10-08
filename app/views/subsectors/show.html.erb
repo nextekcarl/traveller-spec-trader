@@ -5,34 +5,42 @@
       Starport Size Atmosphere Hydro Population Government Law - Tech
     </p>
     <strong>Trade Codes:</strong><br />
-    <div class="col-sm-6">
+    <div class="col-sm-4">
       <p>
         Ag Agricultural<br />
         As Asteroid<br />
         Ba Barren<br />
         De Desert<br />
         Fl Fluid Oceans<br />
-        Ga Garden<br />
+        Ga Garden
+      </p>
+    </div>
+    <div class="col-sm-4">
+      <p>
         Hi High Population<br />
         Ht High Technology<br />
         IC Ice-Capped<br />
-      </p>
-    </div>
-    <div class="col-sm-6">
-      <p>
         In Industrial<br />
         Lo Low Population<br />
-        Lt Low Technology<br />
+        Lt Low Technology
+      </p>
+    </div>
+    <div class="col-sm-4">
+      <p>
         Na Non-Agricultural<br />
         NI Non-Industrial<br />
         Po Poor<br />
         Ri Rich<br />
         Wa Water World<br />
-        Va Vacuum<br />
+        Va Vacuum
       </p>
     </div>
     <p>
       <strong>Bases:</strong> (N)aval – (S)cout – (R)esearch – (T)AS – (C)onsulate – (P)irate
+    </p>
+    <p>
+      Row <strong>color</strong> is determined by the travel code. Light yellow for Amber,
+      and light red for Red travel zones.
     </p>
   </div>
 </div>
@@ -43,10 +51,9 @@
     <th>Stats</th>
     <th>Base Code(s)</th>
     <th>Trade Codes</th>
-    <th>Travel</th>
   </tr>
   <% @planets.each do |planet| %>
-    <tr>
+    <tr class="<%= travel_code_class(planet) -%>">
       <td>
         <%= link_to planet.name, planet_path(planet) %>
       </td>
@@ -61,9 +68,6 @@
       </td>
       <td>
         <%= planet.trade_codes %>
-      </td>
-      <td>
-        <%= planet.travel_code %>
       </td>
     </tr>
   <% end %>

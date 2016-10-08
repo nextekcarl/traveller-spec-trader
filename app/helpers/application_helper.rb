@@ -9,4 +9,15 @@ module ApplicationHelper
     direction = (column == sort_column && sort_direction == "asc") ? "desc" : "asc"
     link_to (title + icon).html_safe, {:sort => column, :direction => direction}, {:class => css_class}
   end
+
+  def travel_code_class(planet)
+    case planet.travel_code
+    when 'A'
+      return 'table-warning'
+    when 'R'
+      return 'table-danger'
+    else
+      return ''
+    end
+  end
 end

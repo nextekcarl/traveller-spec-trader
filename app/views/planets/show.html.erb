@@ -28,9 +28,8 @@
         <th>Tech</th>
         <th>Base(s)</th>
         <th>Trade</th>
-        <th>Travel</th>
       </tr>
-      <tr>
+      <tr class="<%= travel_code_class(@planet) -%>">
         <td>
           <%= @planet.hex %>
         </td>
@@ -63,9 +62,6 @@
         </td>
         <td>
           <%= @planet.trade_codes %>
-        </td>
-        <td>
-          <%= @planet.travel_code %>
         </td>
       </tr>
     </table>
