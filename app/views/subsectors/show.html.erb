@@ -42,6 +42,10 @@
       Row <strong>color</strong> is determined by the travel code. Light yellow for Amber,
       and light red for Red travel zones.
     </p>
+
+    <p>
+      <%= "<strong>Description:</strong>".html_safe + " #{@subsector.description}" unless @subsector.description.blank? -%>
+    </p>
   </div>
 </div>
 <table class="table table-bordered table-condensed table-striped table-hover">
