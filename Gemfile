@@ -31,6 +31,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'bootstrap', '~> 4.0.0.alpha4'
+gem 'airbrake'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
@@ -60,7 +61,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Rails 12factor for Heroku: https://github.com/heroku/rails_12factor
 group :production do
   gem 'rails_12factor'
-  gem 'airbrake'
 end
 
 # Unicorn: http://unicorn.bogomips.org
