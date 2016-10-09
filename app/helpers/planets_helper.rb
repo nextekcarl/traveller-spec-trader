@@ -355,7 +355,7 @@ are enforced by the Imperial Navy."
       authorised sites
       Use of telepathy
       restricted to
-      governmentapproved
+      government approved
       telepaths"
     when "4"
       return "Light assault
