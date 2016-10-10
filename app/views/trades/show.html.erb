@@ -2,3 +2,15 @@
   Today I have this available for purchase:
 </p>
 <%= @supplier_deal.deals_table.html_safe %>
+<% if @supplier_deal.planet %>
+  <p>
+    Come back <%= form_tag trades_path, method: :post do -%>
+      <%= hidden_field_tag :morally_ambiguous, @supplier_deal.morally_ambiguous -%>
+      <%= hidden_field_tag :planet_id, @supplier_deal.planet_id -%>
+      <% @supplier_deal.planet.trade_codes.split(' ').each do |trade_code| %>
+        <%= hidden_field_tag "trade_codes[#{trade_code}]", trade_code, :name => "trade_codes[]" -%>
+      <% end %>
+      <%= submit_tag('again', class: 'btn btn-primary') %>
+    <% end -%> soon!
+  </p>
+<% end %>
