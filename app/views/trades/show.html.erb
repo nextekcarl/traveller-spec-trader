@@ -1,5 +1,5 @@
 <p>
-  Today I have this available for purchase:
+  <%= deal_intro_text(@supplier_deal) %>
 </p>
 <%= @supplier_deal.deals_table.html_safe %>
 <% if @supplier_deal.planet %>

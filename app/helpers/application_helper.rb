@@ -20,4 +20,12 @@ module ApplicationHelper
       return ''
     end
   end
+
+  def deal_intro_text(supplier_deal)
+    if supplier_deal.planet
+      return "Today on #{supplier_deal.planet.name}, I have this available for purchase:"
+    else
+      return 'Today I have this available for purchase:'
+    end
+  end
 end
