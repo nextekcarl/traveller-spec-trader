@@ -11,7 +11,7 @@ class TradesController < ApplicationController
   def create
     @trade_codes = []
     morally_ambiguous = false
-    morally_ambiguous = !!params[:morally_ambiguous]
+    morally_ambiguous = ActiveRecord::Type::Boolean.new.deserialize(params[:morally_ambiguous]) if params[:morally_ambiguous]
     @trade_codes = params[:trade_codes] if params[:trade_codes]
     @supplier = Supplier.new(morally_ambiguous, @trade_codes.join(' ').titleize)
     @supplier_deal = SupplierDeal.create(
