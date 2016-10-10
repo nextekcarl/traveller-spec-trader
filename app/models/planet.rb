@@ -1,6 +1,7 @@
 class Planet < ApplicationRecord
   REGEX = Regexp.new(/\A\s*(\w+)\s+(\d{4})\s+([ABCDEX]\w{6}-\w{1,2})\s*([NSTRCP]{0,5})\s*((?:\w{2}\s*){0,5})\s*([GAR])?\s*\z/)
   belongs_to :subsector, touch: true
+  has_many :supplier_deals
 
   validates_format_of :uwp, with: REGEX
 

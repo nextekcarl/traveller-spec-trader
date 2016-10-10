@@ -8,6 +8,7 @@
         <%= check_box_tag "morally_ambiguous", true, false, :name => "morally_ambiguous" -%>
         Morally Ambiguous
         <%= hidden_field_tag "trade_codes[]", @planet.trade_codes  %>
+        <%= hidden_field_tag "planet_id", @planet.id  %>
         </ul>
         <%= submit_tag("What's for sale today?", class: 'btn btn-primary') %>
       <% end %>
